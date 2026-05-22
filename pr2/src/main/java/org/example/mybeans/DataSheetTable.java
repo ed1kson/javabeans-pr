@@ -5,6 +5,8 @@ import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class DataSheetTable extends JPanel {
 
@@ -52,10 +54,19 @@ public class DataSheetTable extends JPanel {
 
     public void addData() {
         tableModel.setRowCount(tableModel.getRowCount()+1);
-        tableModel.getDataSheet().add(new Data());
+        tableModel.getDataSheet().add(new Data(getCurrentDate()));
         table.revalidate();
         tableModel.fireDataSheetChange();
     }
+
+    public String getCurrentDate() {
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        String formattedDate = currentDate.format(formatter);
+
+        return formattedDate;
+    }
+
 
     public void deleteData() {
         int i = table.getSelectedRow();

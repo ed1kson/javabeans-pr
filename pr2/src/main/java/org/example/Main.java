@@ -70,7 +70,9 @@ public class Main extends JFrame {
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
         add(mainPanel);
 
-        tablePanel.getTableModel().getDataSheet().add(new Data());
+//        tablePanel.getTableModel().getDataSheet().add(new Data(
+//                tablePanel.getCurrentDate()
+//        ));
         setVisible(true);
     }
 

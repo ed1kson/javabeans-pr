@@ -9,6 +9,10 @@ public class Data implements Serializable {
 
     public Data() { }
 
+    public Data(String data) {
+        this.date = data;
+    }
+
     public Data(double x, double y, String date) {
         this.x = x;
         this.y = y;
